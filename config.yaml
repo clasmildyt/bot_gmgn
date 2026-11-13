@@ -1,0 +1,105 @@
+gmgn:
+  chain: sol
+  interval: 5m
+  limit: 10
+  orderby: volume
+  direction: desc
+  poll_interval_sec: 5
+  request_timeout_ms: 30000
+
+filters:
+  # Passed to GMGN /v1/market/rank as query params. null/empty means disabled.
+  # Rates are decimals: 0.25 = 25%.
+  server:
+    min_visiting_count: 450
+    min_volume: 450000
+    # max_visiting_count:
+    # min_liquidity:
+    # max_liquidity:
+    # min_market_cap:
+    # max_market_cap:
+    # min_holder_count:
+    # max_holder_count:
+    # min_swaps:
+    # max_swaps:
+    # min_created: 
+    # max_created: 
+    # min_smart_degen_count:
+    # max_smart_degen_count:
+    # min_renowned_count:
+    # max_renowned_count:
+    # min_bot_degen_count:
+    # max_bot_degen_count:
+    # min_insider_rate:
+    # max_insider_rate:
+    # min_bundler_rate:
+    # max_bundler_rate:
+    # min_entrapment_ratio:
+    # max_entrapment_ratio:
+    # min_top10_holder_rate:
+    # max_top10_holder_rate:
+    # min_top70_sniper_hold_rate:
+    # max_top70_sniper_hold_rate:
+    # min_dev_team_hold_rate:
+    # max_dev_team_hold_rate:
+    # min_sniper_count:
+    # max_sniper_count:
+    # min_gas_fee:
+    # max_gas_fee:
+    # min_rug_ratio:
+    # max_rug_ratio:
+
+  # Evaluated locally after normalization.
+  client:
+    reject_honeypot: true
+    reject_wash_trading: true
+    require_mint_renounced: true
+    require_freeze_renounced: true
+    max_buy_tax: 0.1
+    max_sell_tax: 0.1
+    # min_volume_liquidity_ratio:
+    # max_volume_liquidity_ratio:
+    # min_buy_sell_ratio:
+    # max_buy_sell_ratio:
+    # min_price_change_1m:
+    # max_price_change_1m:
+    # min_price_change_5m:
+    # max_price_change_5m:
+    # min_price_change_1h:
+    # max_price_change_1h:
+    # min_price_vs_ath:
+    # max_price_vs_ath:
+    # require_social: false
+    # min_age_sec:
+    # max_age_sec:
+
+alert:
+  repeat_sec: 300
+  show_visiting_count: true
+  max_per_cycle: 5
+
+meteora:
+  # SOL, USDC, USDT, or a raw Solana mint address.
+  quote: SOL
+  require_pool: false
+  min_tvl:
+  min_active_tvl:
+  min_volume:
+  min_fee_active_tvl_ratio:
+  min_bin_step:
+  max_bin_step:
+  cache_ttl_sec: 60
+  request_timeout_ms: 15000
+
+scoring:
+  # Heuristic score for display/ordering. Enable min_score to make it a filter.
+  enabled: false
+  min_score: 60
+
+state:
+  path: data/state.json
+  retention_sec: 86400
+
+logging:
+  level: info
+  json: false

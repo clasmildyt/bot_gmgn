@@ -1,0 +1,22 @@
+{
+  "name": "bot-gmgn",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Report-only GMGN Solana trend screener with Telegram alerts",
+  "engines": {
+    "node": ">=20.11"
+  },
+  "scripts": {
+    "start": "node src/index.js",
+    "dry-run": "node src/index.js --dry-run",
+    "debug": "node src/index.js --debug",
+    "once": "node src/index.js --once",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "yaml": "^2.5.1",
+    "zod": "^4.6.7"
+  }
+}
